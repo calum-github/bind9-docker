@@ -26,6 +26,7 @@ RUN mkdir -p /etc/bind/zones/hint && \
 
 # Add our startup script
 ADD start.sh /start.sh
+RUN chmod 755 /start.sh
 
 # Expose the bind folder as a volumes
 VOLUME /etc/bind
