@@ -21,7 +21,7 @@ RUN apt-get update && \
 
 # Setup directories for bind
 RUN mkdir -p /etc/bind/zones/hint && \
-	mkdir -p /etc/bind/zones/master
+	mkdir -p /etc/bind/zones/master && \
 	mkdir -p /var/log/bind && chmod 777 /var/log/bind
 
 # Add our startup script
