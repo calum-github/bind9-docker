@@ -19,10 +19,12 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/* && \
 	rm -rf /etc/bind/*
 
-# Setup directories for bind
+# Setup directories and permissions for bind
 RUN mkdir -p /etc/bind/zones/hint && \
 	mkdir -p /etc/bind/zones/master && \
-	mkdir -p /var/log/bind && chmod 777 /var/log/bind
+	mkdir -p /var/log/bind && chown bind:bind /var/log/bind && \
+	mkdir -p /var/bind && chown bind:bind /var/bind && \
+	mkdir -p /var/run/bind && chown bind:bind /var/run/bind
 
 # Add our startup script
 ADD start.sh /start.sh
